@@ -10,7 +10,7 @@
 - 基準分支：`main`
 - 基準 Commit：`02d3bfea62a135487faeb88af75e202692927e72`
 - 開發分支：`claude/peaceful-euler-jpfp04`
-- 開發 PR：`[建立後填入]`
+- 開發 PR：https://github.com/hsuanyu9503/Teaching-Studio/pull/1（draft）
 - 規格版次：`PROJECT_SPEC V1.0／SPEC S1.0／DESIGN D0.1 草案／TECH T0.1 提案`
 - 下一位負責人：`你`（GitHub 設定 B-1～B-3）＋ `ChatGPT`（L3 獨立審查）
 - 最近更新：`2026-11-15`
@@ -37,7 +37,7 @@
 | npm run build | 通過 | 同上 |
 | e2e Chromium（8） | 通過 | 同上 |
 | e2e WebKit（iPad 模擬） | 未執行（本機無 WebKit）→ CI | CI `validate` |
-| CI `validate` | 未確認 | PR 建立後填入 |
+| CI `validate` | 未確認（`2a9ffdf` 執行中） | https://github.com/hsuanyu9503/Teaching-Studio/actions/runs/43736950405 |
 | GitHub Pages 正式部署 | 未執行 | 需設定與合併 |
 | 實機驗收 | 未執行 | 需使用者 |
 

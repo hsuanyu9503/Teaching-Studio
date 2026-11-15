@@ -4,7 +4,7 @@
 
 ## Stage 0｜初始化與技術基線
 
-- PR URL：`[建立後填入]`
+- PR URL：https://github.com/hsuanyu9503/Teaching-Studio/pull/1
 - Base SHA：`02d3bfea62a135487faeb88af75e202692927e72`
 - Reviewed Head SHA：`[未審查]`
 - 風險等級及理由：初評 L3；新增 Pages／Release 部署工作流程（部署權限）與全部依賴選型。最終等級由使用者決定
@@ -13,7 +13,7 @@
 - ChatGPT 結論：未審查
 - 問題清單及處理：—
 - Claude 修正 Commit：不適用
-- CI 執行連結與狀態：`[未確認]`
+- CI 執行連結與狀態：`2a9ffdf` 執行中 https://github.com/hsuanyu9503/Teaching-Studio/actions/runs/43736950405（以最新 Head 的結果為準）
 - 使用者決策：未核准
 - 待完成事項：GitHub Pages 來源設定、main Ruleset、L3 審查
 

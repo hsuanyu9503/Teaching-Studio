@@ -153,7 +153,10 @@ e2e 涵蓋：子路徑入口頁無 console 錯誤；相對路徑導覽；PDF.js 
 
 - PR、Head SHA、CI 執行結果：見 `docs/HANDOFF.md` 與 PR 說明（PR 建立後填寫）。
 - 部署：**尚未部署**。需完成 B-1 並經使用者核准合併。
-- 審查證據包：`python3 scripts/export_review_packet.py --base origin/main --head HEAD`（輸出至 `.review-packets/`，不提交 Git）。差異超過 512 KiB 時須以 `--path` 分批匯出；`package-lock.json` 建議另行處理（見 PR 說明）。
+- 審查證據包（`.review-packets/`，不提交 Git；已以 Kit 腳本內建規則及人工搜尋確認不含個資或權杖）：
+  - 完整差異：`PR_REVIEW_PACKET-<head>.md`（約 393 KB，低於 Kit 512 KiB 上限）。
+  - 分批（便於審查，合計涵蓋 lockfile 以外全部 90 個路徑）：`PR1-src-*`（原始碼、測試、腳本）、`PR1-github-*`（工作流程與設定）、`PR1-docs-*`（文件與範本）。
+  - `package-lock.json`（4,248 行）只在完整差異中，建議審查重點為 `package.json` 的固定版本與 `npm audit` 結果。
 
 ## 11. Stage 1 進入條件
 
