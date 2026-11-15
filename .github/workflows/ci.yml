@@ -1,0 +1,56 @@
+name: CI - 檢查與建置
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # 名稱維持 `validate`：Starter Kit V1.2 以此作為 main 的必要狀態檢查。
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Node.js 24 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: 固定 npm 版本（與 package-lock.json 產生版本一致）
+        run: npm install -g npm@11.12.1 && npm --version
+      - name: 安裝相依套件（依 lockfile）
+        run: npm ci
+      - name: 檢查結構、隱私與敏感內容
+        run: npm run check
+      - name: ESLint
+        run: npm run lint
+      - name: 型別檢查
+        run: npm run typecheck
+      - name: 單元測試與治理規則測試
+        run: npm test
+      - name: 建置（GitHub Pages 子路徑 /Teaching-Studio/）
+        run: npm run build
+      - name: 檢查建置輸出路徑
+        run: npm run check
+      - name: 安裝 Playwright 瀏覽器（Chromium、WebKit）
+        run: npx playwright install --with-deps chromium webkit
+      - name: E2E（production preview；含 WebKit iPad 模擬，非實機）
+        env:
+          E2E_WEBKIT: '1'
+        run: npm run e2e
+      - name: 上傳 Playwright 報告（失敗時）
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7
