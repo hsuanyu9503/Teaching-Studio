@@ -1,0 +1,19 @@
+.diag { max-width: 70rem; margin: 0 auto; padding: 1.5rem; }
+.diag-card { margin: 1.5rem 0; padding: 1.25rem; background: var(--ts-surface); border: 1px solid var(--ts-border); border-radius: var(--ts-radius); }
+.diag-card h2 { margin-top: 0; font-size: 1.25rem; }
+.diag-card label { display: inline-block; margin: 0.5rem 0.25rem 0.25rem 0; }
+.diag-card textarea { display: block; width: 100%; padding: 0.5rem; font: 0.9rem ui-monospace, monospace; color: var(--ts-text); background: var(--ts-bg); border: 1px solid var(--ts-border); border-radius: var(--ts-radius); }
+.diag-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin: 0.75rem 0; }
+.diag-row a { display: inline-flex; align-items: center; min-height: var(--ts-touch); }
+.diag-pass { color: var(--ts-ok); }
+.diag-fail { color: var(--ts-danger); }
+.diag-dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.25rem 1rem; }
+.diag-dl dt { color: var(--ts-text-muted); }
+.diag-dl dd { margin: 0; word-break: break-all; }
+.diag-canvas-wrap { margin: 0.75rem 0; }
+.diag-canvas-wrap canvas { max-width: 100%; height: auto !important; background: #fff; }
+.diag-frame-outer { transition: width 0.2s; }
+/* 16:9 容器，保留比例，不裁切 */
+.diag-frame-box { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: var(--ts-radius); overflow: hidden; }
+.diag-frame-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.diag-checklist { color: var(--ts-text-muted); }
