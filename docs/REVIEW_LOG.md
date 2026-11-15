@@ -13,7 +13,7 @@
 - ChatGPT 結論：未審查
 - 問題清單及處理：—
 - Claude 修正 Commit：不適用
-- CI 執行連結與狀態：`2a9ffdf` 執行中 https://github.com/hsuanyu9503/Teaching-Studio/actions/runs/43736950405（以最新 Head 的結果為準）
+- CI 執行連結與狀態：`8d0a1c6` 成功 https://github.com/hsuanyu9503/Teaching-Studio/actions/runs/43737040101（e2e 16/16，含 WebKit）；`2a9ffdf` 執行被取消。之後的紀錄 Commit 以最新 Head 的 CI 為準
 - 使用者決策：未核准
 - 待完成事項：GitHub Pages 來源設定、main Ruleset、L3 審查
 

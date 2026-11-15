@@ -103,7 +103,7 @@
 | D-2 | 嵌入內容在 restricted sandbox 下可用；原生控制、動畫、影音、全螢幕的支援程度 | C-3 |
 | D-3 | GitHub Pages 以 JavaScript MIME 提供 `.mjs` worker | C-2（驗證頁顯示 Content-Type） |
 | D-4 | pdfjs-dist 6 現代版建置可在使用者的 iPad Safari 版本執行 | C-2；失敗則 Stage 1 改用 legacy build |
-| D-5 | WebKit（Playwright iPad 模擬）e2e 通過 | CI（本環境無 WebKit，未在本機執行） |
+| D-5 | ~~WebKit（Playwright iPad 模擬）e2e 通過~~ | **已於 CI 驗證**（8/8）；模擬不等於 iPad Safari 實機，D-4 仍需 C-2 |
 | D-6 | 以 `Date.now()` 計時在 iPad 休眠恢復後正確 | Stage 3 實機 |
 | D-7 | CJK PDF 在設定 cMap 後正確顯示 | Stage 1 |
 
@@ -121,7 +121,8 @@
 | `npm test`：治理規則 | 通過（11 項） | 同上 |
 | `npm run build` | 通過 | 同上 |
 | `npm run e2e`（Chromium） | 通過（8 項） | 同上 |
-| `npm run e2e`（WebKit iPad 模擬） | **未在本機執行**（無 WebKit）；由 CI 執行 | CI `validate` |
+| `npm run e2e`（WebKit iPad 模擬，非實機） | 本機未執行（無 WebKit）；**CI 通過 8/8**（Head `8d0a1c6`），含 PDF.js 真 Web Worker 渲染 | https://github.com/hsuanyu9503/Teaching-Studio/actions/runs/43737040101 |
+| CI `validate`（Node 24、npm 11.12.1，全部步驟） | **通過**（Head `8d0a1c6`） | 同上 |
 | `npm audit --omit=dev` | 0 個漏洞 | — |
 | 能力矩陣文件一致性測試的有效性 | 已以刻意修改文件確認測試會失敗，再還原 | — |
 
@@ -146,6 +147,7 @@ e2e 涵蓋：子路徑入口頁無 console 錯誤；相對路徑導覽；PDF.js 
 | R-6 | `.mjs` MIME、iPad 相容性 | worker 退回主執行緒或無法執行 | D-3、D-4 驗證；備案已記錄 |
 | R-7 | PDF.js worker 1.27 MB | 首次載入較慢 | Stage 1 只在需要時載入 PDF 模組（動態 import） |
 | R-8 | 尚無 CSP | 防禦縱深不足 | Stage 2 提案 |
+| R-9 | `actions/setup-node@v4` 使用已淘汰的 Node 20 action runtime（CI 警告，目前被強制以 Node 24 執行，功能正常） | 未來可能失效 | 後續以獨立 PR 升級 action 版本（工作流程變更需審查） |
 
 安全：無機密、無個資、無外部分析；診斷頁只在使用者主動貼上網址時連線至白名單官方網域。
 

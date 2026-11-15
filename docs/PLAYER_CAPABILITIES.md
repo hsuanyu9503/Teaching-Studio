@@ -32,7 +32,7 @@
 | 項目 | 狀態 | 證據 |
 |---|---|---|
 | PDF.js worker 在 `/Teaching-Studio/` 子路徑 production build 以 Web Worker 載入並渲染 | 已驗證（本機 vite preview、Chromium） | `tests/e2e/stage0.spec.ts` |
-| 同上於 WebKit（iPad 模擬） | 待 CI 執行 | CI `validate` |
+| 同上於 WebKit（iPad 模擬，非實機） | 已驗證（CI） | https://github.com/hsuanyu9503/Teaching-Studio/actions/runs/43737040101 |
 | 同上於 GitHub Pages 正式網址 | **未驗證**（需合併 main 並啟用 Pages Actions） | — |
 | 同上於 iPad Safari 實機、Windows Chrome／Edge 實機 | **未驗證**（需使用者操作） | — |
 | 嵌入網址白名單驗證、拒絕不安全輸入、不注入貼入 HTML | 已驗證（單元＋e2e，未連線外部） | `embedSource.test.ts`、e2e |

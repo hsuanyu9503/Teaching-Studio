@@ -36,8 +36,8 @@
 | npm test（Vitest 27＋治理 11） | 通過 | 同上 |
 | npm run build | 通過 | 同上 |
 | e2e Chromium（8） | 通過 | 同上 |
-| e2e WebKit（iPad 模擬） | 未執行（本機無 WebKit）→ CI | CI `validate` |
-| CI `validate` | 未確認（`2a9ffdf` 執行中） | https://github.com/hsuanyu9503/Teaching-Studio/actions/runs/43736950405 |
+| e2e WebKit（iPad 模擬，非實機） | 通過（CI，8/8） | https://github.com/hsuanyu9503/Teaching-Studio/actions/runs/43737040101 |
+| CI `validate` | 通過（Head `8d0a1c6`：check／lint／typecheck／test／build／e2e Chromium 8＋WebKit 8）；`2a9ffdf` 的執行因新推送被 concurrency 取消 | https://github.com/hsuanyu9503/Teaching-Studio/actions/runs/43737040101 |
 | GitHub Pages 正式部署 | 未執行 | 需設定與合併 |
 | 實機驗收 | 未執行 | 需使用者 |
 
